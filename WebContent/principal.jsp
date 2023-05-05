@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,18 +30,19 @@
 				<th>Preço</th>
 				<th>Ações</th>
 			</tr>
-			<c:forEach var="book" items="${listBook}">
+			<c:forEach items="${livros}" var="livro">
 				<tr>
-					<td><c:out value="${book.id}" /></td>
-					<td><c:out value="${book.title}" /></td>
-					<td><c:out value="${book.author}" /></td>
-					<td><c:out value="${book.price}" /></td>
-					<td><a href="/edit?id=<c:out value='${book.id}' />">Editar</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="/delete?id=<c:out value='${book.id}' />">Excluir</a></td>
+					<td><c:out value="${livro.id }"></c:out></td>
+					<td><c:out value="${livro.titulo}"></c:out></td>
+					<td><c:out value="${livro.autor}"></c:out></td>
+					<td><c:out value="${livro.preco}"></c:out></td>
+					<td><a href="/edit?id=<c:out value='${livro.id }' />">Editar</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a href="ServletsLivro?acao=delete&livro=${livro.id }" onclick="return confirm('Tem certeza que deseja excluir ?')">Excluir</a></td>
 				</tr>
 			</c:forEach>
 		</table>
+		
+		<h3 style="text-align: center">${mensagem }</h3>
 	</div>
 
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<a href="principal.jsp">Acessar o Sistema</a>
+<a href="ServletsLivro?acao=listartodos">Acessar o Sistema</a>
 
 </body>
 </html>
