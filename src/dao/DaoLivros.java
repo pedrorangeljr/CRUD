@@ -55,7 +55,7 @@ public class DaoLivros {
 
 		List<Livro> listar = new ArrayList<Livro>();
 
-		String sql = "select * from livros";
+		String sql = "select * from livros order by id asc";
 		PreparedStatement select = connection.prepareStatement(sql);
 		ResultSet resultado = select.executeQuery();
 
@@ -154,7 +154,7 @@ public class DaoLivros {
 		
 		try {
 			
-			String sql = "update livros set titulo = ?, autor = ?, preco = ? where id = " + livro.getId();
+			String sql = "update livros set titulo = ?, autor = ?, preco = ?  where id = " + livro.getId();
 			PreparedStatement update = connection.prepareStatement(sql);
 			update.setString(1, livro.getTitulo());
 			update.setString(2, livro.getAutor());

@@ -28,20 +28,20 @@
 				 
 				 <tr>
 					<th>ID:</th>
-					<td><input type="text" id="id" name="id"placeholder="ID" readonly="readonly" value="${livro.id }"></td>
+					<td><input type="text" id="id" name="id"placeholder="ID" readonly="readonly" value="${livros.id }"></td>
 				</tr>
 
 				<tr>
 					<th>Titulo:</th>
-					<td><input type="text" id="titulo" name="titulo" size="45" value="${livro.titulo }"/></td>
+					<td><input type="text" id="titulo" name="titulo" size="45" value="${livros.titulo }"/></td>
 				</tr>
 				<tr>
 					<th>Autor:</th>
-					<td><input type="text" id="autor" name="autor" size="45" value="${livro.autor }" /></td>
+					<td><input type="text" id="autor" name="autor" size="45" value="${livros.autor }" /></td>
 				</tr>
 				<tr>
 					<th>Preço:</th>
-					<td><input type="text" id="preco" name="preco" size="5" value="${livro.preco }"/></td>
+					<td><input type="text" id="preco" name="preco" size="5" value="${livros.preco }"/></td>
 				</tr>
 				<tr>
 					<td colspan="2" align="center"><input type="submit"
