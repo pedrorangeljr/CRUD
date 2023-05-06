@@ -124,4 +124,58 @@ public class DaoLivros {
 
 		return false;
 	}
+	
+	/*metodo consultar usado para carregar os para edição*/
+	
+	public Livro consultar(String id) throws Exception {
+		
+		String sql = "select * from livros where id = '"+id+"'";
+		PreparedStatement consultar = connection.prepareStatement(sql);
+		ResultSet resultSet = consultar.executeQuery();
+		
+		if(resultSet.next()) {
+			
+			Livro livros = new Livro();
+			
+			livros.setId(resultSet.getLong("id"));
+			livros.setTitulo(resultSet.getString("titulo"));
+			livros.setAutor(resultSet.getString("autor"));
+			livros.setPreco(resultSet.getString("preco"));
+			
+			return livros;
+		}
+		
+		return null;
+	}
+
+	/*Metodo atualizar*/
+	
+	public void atualizar(Livro livro) {
+		
+		try {
+			
+			String sql = "update livros set titulo = ?, autor = ?, preco = ? where id = " + livro.getId();
+			PreparedStatement update = connection.prepareStatement(sql);
+			update.setString(1, livro.getTitulo());
+			update.setString(2, livro.getAutor());
+			update.setString(3, livro.getPreco());
+			update.executeUpdate();
+			
+			connection.commit();
+			
+		} catch (Exception e) {
+			
+			try {
+				
+				connection.rollback();
+				
+			} catch (SQLException e1) {
+				
+				e1.printStackTrace();
+			}
+			
+			e.printStackTrace();
+		}
+	}
+	
 }

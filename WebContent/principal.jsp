@@ -36,7 +36,7 @@
 					<td><c:out value="${livro.titulo}"></c:out></td>
 					<td><c:out value="${livro.autor}"></c:out></td>
 					<td><c:out value="${livro.preco}"></c:out></td>
-					<td><a href="/edit?id=<c:out value='${livro.id }' />">Editar</a>
+					<td><a href="ServletsLivro?acao=editar&livro=${livro.id }"/>Editar</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a href="ServletsLivro?acao=delete&livro=${livro.id }" onclick="return confirm('Tem certeza que deseja excluir ?')">Excluir</a></td>
 				</tr>
 			</c:forEach>

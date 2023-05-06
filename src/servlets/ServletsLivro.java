@@ -39,6 +39,16 @@ public class ServletsLivro extends HttpServlet {
 				request.setAttribute("livros", daoLivros.listar());
 				dispatcher.forward(request, response);
 			}
+			
+			else if(acao.equalsIgnoreCase("editar")) {
+				
+				Livro livros = daoLivros.consultar(livro);
+				
+				RequestDispatcher dispatcher = request.getRequestDispatcher("adicionarLivros.jsp");
+				request.setAttribute("livros", livros);
+				dispatcher.forward(request, response);
+				
+			}
 
 			else if (acao.equalsIgnoreCase("listartodos")) {
 
@@ -82,6 +92,10 @@ public class ServletsLivro extends HttpServlet {
 
 				daoLivros.salvarLivros(livro);
 
+			}
+			else if (id != null && !id.isEmpty()) {
+				
+				daoLivros.atualizar(livro);
 			}
 
 			/* Lista Livros na tela */
